@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(216, 100%, 50%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+  
+  /* Custom crypto colors */
+  --coinbase-blue: hsl(216, 100%, 50%);
+  --coinbase-dark-blue: hsl(216, 85%, 48%);
+  --dark-bg: hsl(215, 61%, 5%);
+  --card-bg: hsl(220, 13%, 18%);
+  --success-green: hsl(160, 100%, 42%);
+  --danger-red: hsl(355, 83%, 67%);
+  --warning-orange: hsl(29, 79%, 57%);
+  --light-text: hsl(210, 20%, 94%);
+  --muted-text: hsl(220, 14%, 56%);
+  --border-gray: hsl(215, 15%, 20%);
+}
+
+.dark {
+  --background: hsl(215, 61%, 5%);
+  --foreground: hsl(210, 20%, 94%);
+  --muted: hsl(215, 15%, 20%);
+  --muted-foreground: hsl(220, 14%, 56%);
+  --popover: hsl(220, 13%, 18%);
+  --popover-foreground: hsl(210, 20%, 94%);
+  --card: hsl(220, 13%, 18%);
+  --card-foreground: hsl(210, 20%, 94%);
+  --border: hsl(215, 15%, 20%);
+  --input: hsl(215, 15%, 20%);
+  --primary: hsl(216, 100%, 50%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(215, 15%, 20%);
+  --secondary-foreground: hsl(210, 20%, 94%);
+  --accent: hsl(215, 15%, 20%);
+  --accent-foreground: hsl(210, 20%, 94%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(210, 20%, 94%);
+  --ring: hsl(215, 15%, 20%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased;
+    background: var(--dark-bg);
+    color: var(--light-text);
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer utilities {
+  .bg-coinbase-blue {
+    background-color: var(--coinbase-blue);
+  }
+  
+  .bg-coinbase-dark-blue {
+    background-color: var(--coinbase-dark-blue);
+  }
+  
+  .bg-dark-bg {
+    background-color: var(--dark-bg);
+  }
+  
+  .bg-card-bg {
+    background-color: var(--card-bg);
+  }
+  
+  .bg-success-green {
+    background-color: var(--success-green);
+  }
+  
+  .bg-danger-red {
+    background-color: var(--danger-red);
+  }
+  
+  .bg-warning-orange {
+    background-color: var(--warning-orange);
+  }
+  
+  .bg-border-gray {
+    background-color: var(--border-gray);
+  }
+  
+  .text-coinbase-blue {
+    color: var(--coinbase-blue);
+  }
+  
+  .text-coinbase-dark-blue {
+    color: var(--coinbase-dark-blue);
+  }
+  
+  .text-light-text {
+    color: var(--light-text);
+  }
+  
+  .text-muted-text {
+    color: var(--muted-text);
+  }
+  
+  .text-success-green {
+    color: var(--success-green);
+  }
+  
+  .text-danger-red {
+    color: var(--danger-red);
+  }
+  
+  .text-warning-orange {
+    color: var(--warning-orange);
+  }
+  
+  .border-border-gray {
+    border-color: var(--border-gray);
+  }
+  
+  .hover\:bg-coinbase-dark-blue:hover {
+    background-color: var(--coinbase-dark-blue);
+  }
+  
+  .hover\:text-light-text:hover {
+    color: var(--light-text);
+  }
+  
+  .focus\:border-coinbase-blue:focus {
+    border-color: var(--coinbase-blue);
+  }
+}
