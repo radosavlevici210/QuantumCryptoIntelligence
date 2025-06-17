@@ -190,6 +190,51 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Wallet send functionality
+  const sendSchema = z.object({
+    token: z.string(),
+    amount: z.string(),
+    walletAddress: z.string()
+  });
+
+  app.post("/api/wallet/send", async (req, res) => {
+    try {
+      const { token, amount, walletAddress } = sendSchema.parse(req.body);
+      
+      // Simulate wallet send operation
+      const fromHolding = await storage.getHolding(DEFAULT_USER_ID, token);
+      
+      if (!fromHolding || parseFloat(fromHolding.balance) < parseFloat(amount)) {
+        return res.status(400).json({ message: "Insufficient balance" });
+      }
+
+      // Update user's balance (subtract sent amount)
+      const newBalance = (parseFloat(fromHolding.balance) - parseFloat(amount)).toFixed(8);
+      await storage.updateHolding(fromHolding.id, { balance: newBalance });
+
+      // Create transaction record
+      const transaction = await storage.createTransaction({
+        userId: DEFAULT_USER_ID,
+        type: "sent",
+        tokenSymbol: token,
+        amount: `-${amount}`,
+        value: (parseFloat(amount) * 3000).toFixed(2), // Simulated USD value
+        hash: `0x${Math.random().toString(16).substr(2, 64)}`, // Mock transaction hash
+        toAddress: walletAddress
+      });
+
+      res.json({ 
+        transaction, 
+        success: true, 
+        hash: transaction.hash,
+        message: `Successfully sent ${amount} ${token} to ${walletAddress}`
+      });
+    } catch (error) {
+      console.error("Error sending tokens:", error);
+      res.status(400).json({ message: "Failed to send tokens" });
+    }
+  });
+
   // Network status
   app.get("/api/network/status", async (req, res) => {
     try {

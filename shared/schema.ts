@@ -47,6 +47,7 @@ export const transactions = pgTable("transactions", {
   hash: text("hash"),
   fromToken: text("from_token"),
   toToken: text("to_token"),
+  toAddress: text("to_address"),
   createdAt: timestamp("created_at").defaultNow(),
 });
 
