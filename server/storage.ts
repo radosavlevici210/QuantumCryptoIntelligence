@@ -128,6 +128,8 @@ export class MemStorage implements IStorage {
         amount: "0.50000000",
         value: "923.50",
         hash: "0x1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b",
+        fromToken: null,
+        toToken: null,
         createdAt: new Date(Date.now() - 2 * 60 * 60 * 1000) // 2 hours ago
       },
       {
@@ -150,6 +152,8 @@ export class MemStorage implements IStorage {
         amount: "15000.00000000",
         value: "4500.00",
         hash: "0x5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f",
+        fromToken: null,
+        toToken: null,
         createdAt: new Date(Date.now() - 24 * 60 * 60 * 1000) // 1 day ago
       },
       {
@@ -160,6 +164,8 @@ export class MemStorage implements IStorage {
         amount: "-0.05000000",
         value: "2169.50",
         hash: "0x7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b",
+        fromToken: null,
+        toToken: null,
         createdAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000) // 2 days ago
       }
     ];
