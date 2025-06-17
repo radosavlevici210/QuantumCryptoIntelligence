@@ -1,11 +1,12 @@
 import { Link, useLocation } from "wouter";
-import { Wallet, TrendingUp, Coins, Bot, ArrowLeftRight, History, Brain } from "lucide-react";
+import { Wallet, TrendingUp, Coins, Bot, ArrowLeftRight, History, Brain, BookOpen } from "lucide-react";
 
 export default function Sidebar() {
   const [location] = useLocation();
 
   const navigation = [
     { name: "Dashboard", href: "/", icon: TrendingUp, current: location === "/" },
+    { name: "Education", href: "/education", icon: BookOpen, current: location === "/education" },
     { name: "Portfolio", href: "/portfolio", icon: Coins, current: location === "/portfolio" },
     { name: "AI Token Creator", href: "/create", icon: Bot, current: location === "/create" },
     { name: "Exchange", href: "/exchange", icon: ArrowLeftRight, current: location === "/exchange" },
